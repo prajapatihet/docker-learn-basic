@@ -1,0 +1,36 @@
+### creating directory where we want to create JavaProject
+
+mkdir <folder-name>
+
+cd <folder-name>
+
+gedit Main.java
+
+javac -verbose Main.java
+
+gedit manifest.txt
+
+## -> Manifest-Version: 1.0
+## -> Created-By: <user-name> (Organization-Name)
+## -> Main-Class: Main
+
+### now everythings is ready, we have to create jar file for executing code
+
+jar -cfmv Main.jar manifest.txt Main.class
+
+### Our executable file is ready now we have to create Dockerfile inside our folder
+
+gedit Dockerfile
+
+## FROM openjdk:18
+## WORKDIR /
+## COPY Main.jar Main.jar
+## CMD ["java", "-jar", "Main.jar"]
+
+### our dockerfile is ready now build docker image using that dockerfile
+
+sudo docker build -t main .
+
+### our docker image is ready now run it using,
+
+sudo docker run -it <image-id>

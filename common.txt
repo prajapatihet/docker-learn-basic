@@ -1,0 +1,17 @@
+### remove all image-cache
+sudo docker system prune -a
+
+### for checking current available image in local machine
+sudo docker images
+
+### for checking container available in system
+sudo docker ps -a
+
+### for buildiing docker and creating docker image
+sudo docker build -t <image-name> .
+
+### for run/execute docker image
+sudo docker run -it <image-id>
+
+### for deleting particular docker container
+sudo docker rm <container-id>
